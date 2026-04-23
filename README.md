@@ -4,162 +4,141 @@ A beginner-friendly full-stack task manager app with user authentication.
 
 Users can sign up, log in, and manage personal tasks from a clean dashboard.
 
-## Features
+---
 
-- User signup and login with JWT authentication
-- Protected task routes (each user can access only their own tasks)
-- Create, view, update, and delete tasks
-- Mark tasks as completed or pending
-- Basic loading, empty state, and error handling in UI
+## Live Demo
 
-## Tech Stack
+* **Frontend (Netlify):** https://sparkly-dango-9f1abb.netlify.app
+* **Backend (Render):** https://task-manager-e4bh.onrender.com
+
+---
+
+##  Features
+
+* User signup and login with JWT authentication
+* Protected task routes (each user accesses only their own tasks)
+* Create tasks
+* View tasks
+* Delete tasks
+* Mark tasks as completed or pending
+* Basic loading and error handling in UI
+
+---
+
+##  Tech Stack
 
 ### Frontend
 
-- React
-- React Router
-- Fetch API
+* React
+* React Router
+* Fetch API
 
 ### Backend
 
-- Node.js
-- Express
-- MongoDB
-- Mongoose
-- JWT
-- bcryptjs
+* Node.js
+* Express
+* MongoDB Atlas
+* Mongoose
+* JWT (Authentication)
+* bcryptjs (Password hashing)
+
+---
 
 ## Project Structure
 
-```bash
+```
 task-manager/
   backend/
   frontend/
 ```
 
-## Setup Instructions
+---
 
-## 1) Clone and install dependencies
+##  Environment Variables
 
-```bash
-git clone <your-repo-url>
-cd task-manager
+### Backend (.env)
+
 ```
-
-### Install backend dependencies
-
-```bash
-cd backend
-npm install
-```
-
-### Install frontend dependencies
-
-```bash
-cd ../frontend
-npm install
-```
-
-## 2) Environment Variables
-
-Create these files:
-
-- `backend/.env`
-- `frontend/.env`
-
-You can copy from:
-
-- `backend/.env.example`
-- `frontend/.env.example`
-
-### Backend `.env`
-
-```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/taskmanager
-JWT_SECRET=your_jwt_secret_here
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
-### Frontend `.env`
+---
 
-```env
-REACT_APP_API_URL=http://localhost:5000/api
+### Frontend (.env)
+
+```
+REACT_APP_API_URL=https://task-manager-e4bh.onrender.com/api
 ```
 
-## 3) Run Locally
+---
 
-Open 2 terminals.
+##  API Endpoints
 
-### Terminal 1 - Backend
+Base URL:
 
-```bash
-cd backend
-npm run dev
 ```
-
-Backend runs on: `http://localhost:5000`
-
-### Terminal 2 - Frontend
-
-```bash
-cd frontend
-npm start
+https://task-manager-e4bh.onrender.com/api
 ```
-
-Frontend runs on: `http://localhost:3000`
-
-## API Endpoints
-
-Base URL: `http://localhost:5000/api`
 
 ### Auth
 
-- `POST /auth/signup` - Register a new user
-- `POST /auth/login` - Login and get JWT token
+* `POST /auth/signup` → Register user
+* `POST /auth/login` → Login and get token
+
+---
 
 ### Tasks (Protected)
 
-Send header:
+Header:
 
-```http
+```
 Authorization: Bearer <token>
 ```
 
-- `POST /tasks` - Create a new task
-- `GET /tasks` - Get all tasks for logged-in user
-- `PUT /tasks/:id` - Update task
-- `DELETE /tasks/:id` - Delete task
+* `POST /tasks` → Create task
+* `GET /tasks` → Get all tasks
+* `DELETE /tasks/:id` → Delete task
 
-## Deployment Instructions (Simple)
+---
 
-## Backend deployment
+##  Deployment
 
-Deploy backend to a Node.js host (for example: Render, Railway, Cyclic, or VPS).
+### Backend
 
-Set backend environment variables on hosting platform:
+* Deployed on Render
+* Connected with MongoDB Atlas
+* Environment variables configured
 
-- `PORT`
-- `MONGO_URI`
-- `JWT_SECRET`
+### Frontend
 
-## Frontend deployment
+* Deployed on Netlify
+* Base directory: `frontend`
+* Build command: `npm run build`
+* Publish directory: `build`
 
-Deploy frontend to a static host (for example: Vercel, Netlify, or Render Static Site).
+---
 
-Set frontend environment variable:
+##  Notes
 
-- `REACT_APP_API_URL` = your deployed backend URL + `/api`
+* JWT_SECRET is kept secure
+* `.env` files are not committed
+* `.env.example` files are used as templates
 
-Example:
+---
 
-```env
-REACT_APP_API_URL=https://your-backend-domain.com/api
-```
+## Status
 
-Then redeploy frontend after setting env variable.
+✔ Backend deployed and working
+✔ Frontend deployed and working
+✔ Database connected
+✔ Task creation and deletion working
 
-## Notes
+---
 
-- Keep `JWT_SECRET` private.
-- Do not commit real `.env` files.
-- Use `.env.example` files as templates.
+##  Conclusion
+
+This project demonstrates a complete full-stack workflow including authentication, database integration, API development, and deployment.
+
+---
